@@ -12,7 +12,6 @@ import {
   Dimensions,
   Image,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 import Svg, {
   Circle,
   Path,
@@ -124,12 +123,7 @@ export default function ChatScreen() {
 
   return (
     <View style={styles.container}>
-      <LinearGradient
-        colors={["#FF960E", "#FF1601"]}
-        style={styles.background}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 0, y: 1 }}
-      >
+      <View style={styles.background}>
         <View style={styles.chatContainer}>
           {/* Header */}
           <Text style={styles.headerTitle}>Bobert Companion</Text>
@@ -164,7 +158,7 @@ export default function ChatScreen() {
                 ) : (
                   <View style={styles.userMessageContainer}>
                     <View style={styles.userMessageContent}>
-                      <Text style={styles.userName}>User983</Text>
+                      <Text style={styles.userName}>Funky_Franky</Text>
                       <Text style={styles.userMessage}>{message.text}</Text>
                       <Text style={styles.timestamp}>
                         {formatTime(message.timestamp)}
@@ -204,19 +198,14 @@ export default function ChatScreen() {
                 onSubmitEditing={sendMessage}
               />
               <TouchableOpacity style={styles.sendButton} onPress={sendMessage}>
-                <LinearGradient
-                  colors={["#EC1B1B", "#FF960E"]}
-                  style={styles.sendButtonGradient}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 0, y: 1 }}
-                >
+                <View style={styles.sendButtonGradient}>
                   {renderSendIcon()}
-                </LinearGradient>
+                </View>
               </TouchableOpacity>
             </View>
           </KeyboardAvoidingView>
         </View>
-      </LinearGradient>
+      </View>
     </View>
   );
 }
@@ -227,7 +216,8 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    paddingTop: 9,
+    backgroundColor: '#FFFFFF',
+    paddingTop: 60,
     paddingHorizontal: 15,
     paddingBottom: 20,
   },
@@ -250,16 +240,16 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 25,
     fontWeight: "700",
-    color: "#000",
+    color: "#212121",
     textAlign: "center",
-    marginTop: 50,
+    marginTop: 30,
     marginBottom: 7,
     fontFamily: "Istok Web, -apple-system, Roboto, Helvetica, sans-serif",
   },
   subtitle: {
     fontSize: 15,
     fontWeight: "400",
-    color: "#000",
+    color: "#595755",
     textAlign: "center",
     marginTop: 6,
     marginBottom: 7,
@@ -295,14 +285,14 @@ const styles = StyleSheet.create({
   botName: {
     fontSize: 20,
     fontWeight: "700",
-    color: "#000",
+    color: "#212121",
     marginBottom: 5,
     fontFamily: "Istok Web, -apple-system, Roboto, Helvetica, sans-serif",
   },
   botMessage: {
     fontSize: 15,
     fontWeight: "700",
-    color: "#1D469F",
+    color: "#4596EC",
     marginBottom: 5,
     fontFamily: "Istok Web, -apple-system, Roboto, Helvetica, sans-serif",
   },
@@ -321,7 +311,7 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 20,
     fontWeight: "700",
-    color: "#000",
+    color: "#212121",
     paddingRight: 10,
     marginBottom: 5,
     fontFamily: "Istok Web, -apple-system, Roboto, Helvetica, sans-serif",
@@ -329,7 +319,7 @@ const styles = StyleSheet.create({
   userMessage: {
     fontSize: 15,
     fontWeight: "700",
-    color: "#CE3802",
+    color: "#EF5724",
     marginBottom: 5,
     textAlign: "right",
     fontFamily: "Istok Web, -apple-system, Roboto, Helvetica, sans-serif",
@@ -354,7 +344,7 @@ const styles = StyleSheet.create({
   timestamp: {
     fontSize: 10,
     fontWeight: "700",
-    color: "#82838B",
+    color: "#ABB0B9",
     fontFamily: "Istok Web, -apple-system, Roboto, Helvetica, sans-serif",
     paddingRight: 10,
   },
@@ -381,12 +371,12 @@ const styles = StyleSheet.create({
     height: 43,
     borderRadius: 200,
     borderWidth: 1,
-    borderColor: "#FF960E",
+    borderColor: "#EF7850",
     backgroundColor: "#FFE5E5",
     paddingHorizontal: 26,
     fontSize: 17,
     fontWeight: "700",
-    color: "#000000",
+    color: "#212121",
     marginRight: 7,
     fontFamily: "Istok Web, -apple-system, Roboto, Helvetica, sans-serif",
   },
@@ -401,6 +391,7 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 26,
+    backgroundColor: '#EF7850',
     justifyContent: "center",
     alignItems: "center",
   },

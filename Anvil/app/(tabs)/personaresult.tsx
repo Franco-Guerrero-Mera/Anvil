@@ -30,20 +30,12 @@ const PeopleIcon = () => (
   <Svg width={22} height={14} viewBox="0 0 22 14" fill="none">
     <Path
       d="M7 8.5C8.10247 8.5 9.78898 8.78123 11.1875 9.34082C11.8863 9.62047 12.4819 9.95737 12.8945 10.3379C13.3038 10.7153 13.5 11.1012 13.5 11.5V13C13.5 13.2739 13.2739 13.5 13 13.5H1C0.726142 13.5 0.5 13.2739 0.5 13V11.5C0.5 11.1012 0.696226 10.7153 1.10547 10.3379C1.51812 9.95737 2.11369 9.62047 2.8125 9.34082C4.21102 8.78123 5.89753 8.5 7 8.5ZM15.293 8.50781C16.3869 8.55144 17.9078 8.82876 19.1875 9.34082C19.8863 9.62047 20.4819 9.95737 20.8945 10.3379C21.3038 10.7153 21.5 11.1012 21.5 11.5V13C21.5 13.2739 21.2739 13.5 21 13.5H16.458C16.4831 13.3375 16.5 13.1706 16.5 13V11.5C16.5 10.2847 16.0208 9.29834 15.293 8.50781ZM7 0.5C8.38168 0.5 9.49023 1.61396 9.49023 3C9.49023 4.38604 8.38168 5.5 7 5.5C5.61614 5.5 4.5 4.38386 4.5 3C4.5 1.61614 5.61614 0.5 7 0.5ZM15 0.5C16.3817 0.5 17.4902 1.61396 17.4902 3C17.4902 4.38604 16.3817 5.5 15 5.5C13.6161 5.5 12.5 4.38386 12.5 3C12.5 1.61614 13.6161 0.5 15 0.5Z"
-      stroke="#6C81AB"
+      stroke="#F08955"
     />
   </Svg>
 );
 
-// Arrow Icon Component for next button
-const ArrowIcon = () => (
-  <Svg width={15} height={7} viewBox="0 0 8 16" fill="none" style={{ transform: [{ rotate: '90.096deg' }] }}>
-    <Path
-      d="M7.03433 7.58742L0.162564 15.0795L4.26801 7.54448L0.187662 0.0725125L7.03433 7.58742Z"
-      fill="#FFFCFC"
-    />
-  </Svg>
-);
+
 
 // Bullet Point Component
 const BulletPoint = ({ text }: { text: string }) => (
@@ -78,7 +70,7 @@ export default function PersonaResult() {
         <View style={styles.header}>
           <View style={styles.profileIconContainer}>
             <Svg width={61} height={61} viewBox="0 0 61 61" fill="none">
-              <Circle cx="30.5" cy="30.5" r="30.5" fill="#7096CC" />
+              <Circle cx="30.5" cy="30.5" r="30.5" fill="#EF5724" />
             </Svg>
             <View style={styles.starIconContainer}>
               <StarIcon />
@@ -175,10 +167,6 @@ export default function PersonaResult() {
           </TouchableOpacity>
         </View>
 
-        {/* Arrow next indicator */}
-        <View style={styles.arrowContainer}>
-          <ArrowIcon />
-        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -233,16 +221,16 @@ const styles = StyleSheet.create({
   },
   traitsContainer: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     paddingHorizontal: 19,
     gap: 12,
     marginBottom: 30,
+    justifyContent: 'space-between',
   },
   trait: {
-    width: 90,
+    flex: 1,
     height: 30,
     borderRadius: 10,
-    backgroundColor: '#7096CC',
+    backgroundColor: '#F08955',
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
@@ -263,7 +251,7 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#6C81AB',
+    borderColor: '#F08955',
     backgroundColor: '#FFF',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
@@ -297,7 +285,7 @@ const styles = StyleSheet.create({
     width: 2,
     height: 36,
     borderRadius: 10,
-    backgroundColor: '#B8C6DA',
+    backgroundColor: '#F08955',
     marginTop: 2,
   },
   roleModelContent: {
@@ -355,7 +343,7 @@ const styles = StyleSheet.create({
     width: 6,
     height: 6,
     borderRadius: 3,
-    backgroundColor: '#7096CC',
+    backgroundColor: '#F08955',
   },
   bulletText: {
     fontFamily: 'Istok Web',
@@ -391,7 +379,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 50,
     borderRadius: 10,
-    backgroundColor: '#7096CC',
+    backgroundColor: '#EF5724',
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -284,14 +284,14 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFFFFF',
   },
   scrollView: {
     flex: 1,
   },
   profileSection: {
     paddingHorizontal: 16,
-    paddingTop: 20,
+    paddingTop: 40,
     paddingBottom: 16,
   },
   profileContent: {
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
     lineHeight: 28,
-    color: '#051833',
+    color: '#212121',
   },
   streakContainer: {
    flexDirection: 'row',
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '400',
     lineHeight: 23,
-    color: '#724800',
+    color: '#212121',
     textAlign: 'center',
     paddingHorizontal: 16,
   },
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     lineHeight: 40,
-    color: '#121417',
+    color: '#212121',
     marginBottom: -10,
   },
   moodScore: {
@@ -373,7 +373,7 @@ const styles = StyleSheet.create({
     fontSize: 50,
     fontWeight: '700',
     lineHeight: 60,
-    color: '#EAA50F',
+    color: '#F49825',
   },
   moodStats: {
     flexDirection: 'row',
@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '400',
     lineHeight: 24,
-    color: '#637887',
+    color: '#595755',
   },
   moodStatsChange: {
     fontFamily: 'Manrope',
@@ -427,9 +427,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   selectedMoodEmoji: {
-    backgroundColor: '#E8F4FD',
+    backgroundColor: '#FEF5F3',
     borderWidth: 2,
-    borderColor: '#7096CC',
+    borderColor: '#F08955',
   },
 
   dayLabels: {
@@ -442,7 +442,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '700',
     lineHeight: 20,
-    color: '#637887',
+    color: '#595755',
     textAlign: 'center',
     width: 50,
   },
@@ -479,7 +479,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     lineHeight: 23,
-    color: '#051833',
+    color: '#212121',
     marginBottom: 16,
   },
   checklistItem: {
@@ -511,11 +511,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '400',
     lineHeight: 24,
-    color: '#121417',
+    color: '#595755',
     flex: 1,
   },
   checklistTextCompleted: {
     textDecorationLine: 'line-through',
-    color: '#637887',
+    color: '#595755',
   },
 });

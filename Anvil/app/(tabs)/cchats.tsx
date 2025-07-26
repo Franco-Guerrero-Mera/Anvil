@@ -20,7 +20,7 @@ const BackArrowIcon = () => (
       fillRule="evenodd"
       clipRule="evenodd"
       d="M18 8C18 8.41421 17.6642 8.75 17.25 8.75H2.56031L8.03063 14.2194C8.32368 14.5124 8.32368 14.9876 8.03063 15.2806C7.73757 15.5737 7.26243 15.5737 6.96937 15.2806L0.219375 8.53063C0.0785421 8.38995 -0.000590086 8.19906 -0.000590086 8C-0.000590086 7.80094 0.0785421 7.61005 0.219375 7.46937L6.96937 0.719375C7.26243 0.426319 7.73757 0.426319 8.03063 0.719375C8.32368 1.01243 8.32368 1.48757 8.03063 1.78062L2.56031 7.25H17.25C17.6642 7.25 18 7.58579 18 8V8Z"
-      fill="#0F141A"
+      fill="#212121"
     />
   </Svg>
 );
@@ -30,7 +30,7 @@ const BasketballIcon = () => (
   <Svg width="44" height="44" viewBox="0 0 44 44" fill="none">
     <Path
       d="M0 19.7094C0.184028 17.8323 0.570486 16.0568 1.15938 14.3829C1.74826 12.709 2.55799 11.1352 3.58854 9.66146C4.87674 10.9865 5.95367 12.5235 6.81933 14.2725C7.685 16.0215 8.24592 17.8338 8.50208 19.7094H0ZM35.4438 19.7094C35.7014 17.8323 36.2535 16.0288 37.1 14.299C37.9465 12.5691 39.0323 11.0417 40.3573 9.71667C41.3878 11.1521 42.1976 12.7163 42.7865 14.4094C43.3753 16.1024 43.7618 17.8691 43.9458 19.7094H35.4438ZM3.58854 34.2292C2.55799 32.7937 1.74826 31.2383 1.15938 29.563C0.570486 27.8876 0.184028 26.1121 0 24.2365H8.50208C8.24444 26.1135 7.68279 27.917 6.81713 29.6469C5.95146 31.3767 4.876 32.9042 3.59075 34.2292M40.3595 34.2292C39.0345 32.9042 37.9487 31.3767 37.1022 29.6469C36.2557 27.917 35.7036 26.1135 35.446 24.2365H43.948C43.764 26.0767 43.3776 27.8434 42.7887 29.5365C42.1998 31.2295 41.3901 32.7937 40.3595 34.2292ZM12.9762 19.7094C12.6817 17.0594 11.964 14.6118 10.823 12.3667C9.68207 10.1215 8.19071 8.09722 6.34896 6.29375C8.11563 4.52708 10.1311 3.11007 12.3954 2.04271C14.6597 0.975347 17.0977 0.294444 19.7094 0V19.7094H12.9762ZM24.2387 19.7094V0C26.8519 0.294444 29.2906 0.975347 31.5549 2.04271C33.8192 3.11007 35.8332 4.52708 37.5969 6.29375C35.7198 8.06042 34.2203 10.0759 33.0985 12.3402C31.9767 14.6044 31.2678 17.0608 30.9719 19.7094H24.2387ZM19.7116 43.9458C17.0616 43.6514 14.614 42.9617 12.3689 41.8766C10.1237 40.7916 8.11783 39.365 6.35117 37.5969C8.22825 35.8302 9.72845 33.8243 10.8518 31.5792C11.9751 29.334 12.6832 26.8865 12.9762 24.2365H19.7116V43.9458ZM24.2387 43.9458V24.2365H30.9741C31.2685 26.8865 31.9774 29.3436 33.1007 31.6079C34.224 33.8722 35.7235 35.8869 37.5991 37.6521C35.8324 39.4188 33.8169 40.8358 31.5527 41.9031C29.2884 42.9705 26.8504 43.6514 24.2387 43.9458Z"
-      fill="black"
+      fill="#EF7850"
     />
   </Svg>
 );
@@ -40,7 +40,7 @@ const PersonIcon = () => (
   <Svg width="29" height="29" viewBox="0 0 29 29" fill="none">
     <Path
       d="M14.5 16.3125C21.4781 16.3125 27.1875 20.8438 27.1875 24.4688C27.1875 25.1898 26.9011 25.8813 26.3912 26.3912C25.8813 26.9011 25.1898 27.1875 24.4688 27.1875H4.53125C3.81019 27.1875 3.11867 26.9011 2.6088 26.3912C2.09894 25.8813 1.8125 25.1898 1.8125 24.4688C1.8125 20.8438 7.52188 16.3125 14.5 16.3125ZM14.5 1.8125C16.1825 1.8125 17.796 2.48086 18.9857 3.67054C20.1754 4.86023 20.8438 6.47378 20.8438 8.15625C20.8438 9.83872 20.1754 11.4523 18.9857 12.642C17.796 13.8316 16.1825 14.5 14.5 14.5C12.8175 14.5 11.204 13.8316 10.0143 12.642C8.82461 11.4523 8.15625 9.83872 8.15625 8.15625C8.15625 6.47378 8.82461 4.86023 10.0143 3.67054C11.204 2.48086 12.8175 1.8125 14.5 1.8125Z"
-      fill="black"
+      fill="#212121"
     />
   </Svg>
 );
@@ -310,7 +310,7 @@ const router = useRouter();
   return (
     
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#E6EBF2" />
+      <StatusBar barStyle="dark-content" backgroundColor="#ff" />
       
       {/* Header */}
       <View style={styles.header}>
@@ -359,7 +359,7 @@ const router = useRouter();
           <TextInput
             style={styles.textInput}
             placeholder="Message ..."
-            placeholderTextColor="#7E7E7E"
+            placeholderTextColor="#595755"
             value={input}
             onChangeText={setInput}
             returnKeyType="send"
@@ -377,9 +377,9 @@ const router = useRouter();
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E6EBF2',
+    backgroundColor: '#FFFFFF',
     paddingHorizontal: 9,
-    paddingTop: 9,
+    paddingTop: 50,
   },
   header: {
     flexDirection: 'row',
@@ -414,7 +414,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 35,
     fontWeight: '700',
-    color: '#000',
+    color: '#212121',
     marginLeft: 8,
     fontFamily: 'System', // Will fallback to system font
   },
@@ -454,20 +454,20 @@ const styles = StyleSheet.create({
   userUsername: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#000',
+    color: '#212121',
     fontFamily: 'System',
   },
   userTimestamp: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#82838B',
+    color: '#ABB0B9',
     fontFamily: 'System',
     marginRight: 12,
   },
   userMessageText: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#222222ff',
+    color: '#212121',
     fontFamily: 'System',
     textAlign: 'right',
   },
@@ -519,14 +519,14 @@ const styles = StyleSheet.create({
   timestamp: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#82838B',
+    color: '#ABB0B9',
     fontFamily: 'System',
     marginRight: 12,
   },
   messageText: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#222222ff',
+    color: '#212121',
     fontFamily: 'System',
   },
   currentUserMessageText: {
@@ -548,7 +548,7 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     flex: 1,
-    backgroundColor: '#EEF3FB',
+    backgroundColor: '#FFEBE5',
     borderRadius: 200,
     paddingHorizontal: 26,
     paddingVertical: 12,
@@ -556,15 +556,15 @@ const styles = StyleSheet.create({
   },
   textInput: {
     fontSize: 17,
-    fontWeight: '700',
-    color: '#7E7E7E',
+    fontWeight: '500',
+    color: '#ABB0B9',
     fontFamily: 'System',
   },
   sendButton: {
     width: 52,
     height: 52,
     borderRadius: 26,
-    backgroundColor: '#7096CC',
+    backgroundColor: '#EF7850',
     justifyContent: 'center',
     alignItems: 'center',
   },

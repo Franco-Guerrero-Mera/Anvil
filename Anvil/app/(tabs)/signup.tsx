@@ -40,8 +40,8 @@ const AppLogo = () => (
           y2="149"
           gradientUnits="userSpaceOnUse"
         >
-          <Stop offset="0.221154" stopColor="#FF960E" />
-          <Stop offset="0.793269" stopColor="#FF1500" />
+          <Stop offset="0.221154" stopColor="#F49825" />
+          <Stop offset="0.793269" stopColor="#EF5724" />
         </SvgLinearGradient>
         <Filter
           id="filter0_i"
@@ -98,11 +98,11 @@ const ArrowIcon = () => (
   <Svg width="12" height="17" viewBox="0 0 12 17" fill="none">
     <Path
       d="M3.87283 0.585786C3.09178 -0.195262 1.82545 -0.195262 1.0444 0.585786C0.263356 1.36683 0.263356 2.63316 1.0444 3.41421L3.87283 0.585786ZM2.45862 2L1.0444 3.41421L9.1274 11.4972L10.5416 10.083L11.9558 8.66878L3.87283 0.585786L2.45862 2Z"
-      fill="black"
+      fill="#FFFFFF"
     />
     <Path
       d="M0.936805 13.2821C0.103869 14.0076 0.0167428 15.2709 0.742203 16.1038C1.46766 16.9368 2.73099 17.0239 3.56393 16.2984L0.936805 13.2821ZM2.25037 14.7903L3.56393 16.2984L11.7459 9.17222L10.4323 7.66405L9.11877 6.15589L0.936805 13.2821L2.25037 14.7903Z"
-      fill="black"
+      fill="#FFFFFF"
     />
   </Svg>
 );
@@ -155,17 +155,12 @@ export default function SignupScreen() {
         {/* Continue Button */}
         <TouchableOpacity onPress={() => router.push('/home')}
         style={styles.continueButtonContainer}>
-          <LinearGradient
-            colors={["#FF960E", "#FF1500"]}
-            style={styles.continueButton}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-          >
+          <View style={styles.continueButton}>
             <Text style={styles.continueButtonText}>Continue</Text>
             <View style={styles.arrowIcon}>
               <ArrowIcon />
             </View>
-          </LinearGradient>
+          </View>
         </TouchableOpacity>
 
         {/* Divider */}
@@ -252,6 +247,7 @@ const styles = StyleSheet.create({
   continueButton: {
     width: 301,
     height: 72,
+    backgroundColor: "#EF7850",
     borderRadius: 12,
     flexDirection: "row",
     alignItems: "center",
@@ -261,12 +257,11 @@ const styles = StyleSheet.create({
   continueButtonText: {
     fontSize: 20,
     fontWeight: "700",
-    color: "#000",
+    color: "#FFFFFF",
     fontFamily: "Istok Web, -apple-system, Roboto, Helvetica, sans-serif",
   },
   arrowIcon: {
-    position: "absolute",
-    right: 24,
+    marginLeft: 8,
   },
   dividerContainer: {
     flexDirection: "row",

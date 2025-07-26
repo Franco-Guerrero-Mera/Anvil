@@ -300,7 +300,7 @@ export default function DebunkScreen() {
                     >
                       <Path
                         d="M86.7005 0C134.455 0 173.168 39.4741 173.168 88.168C173.168 136.862 134.455 176.336 86.7005 176.336C38.9457 176.336 0.232727 136.862 0.232727 88.168C0.232796 39.4741 38.9457 2.52293e-05 86.7005 0Z"
-                        fill="white"
+                        fill="#FFEBE5"
                       />
                     </Svg>
                   </View>
@@ -308,18 +308,12 @@ export default function DebunkScreen() {
                   {/* Document Icon - Above the card */}
                   <View style={styles.iconAboveCard}>
                     <Svg width={75} height={75} viewBox="0 0 75 75">
-                      <Defs>
-                        <LinearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="0%" y2="100%">
-                          <Stop offset="0.225962" stopColor="#FF960E" />
-                          <Stop offset="1" stopColor="#FF1500" />
-                        </LinearGradient>
-                      </Defs>
                       <Ellipse
                         cx="37.2624"
                         cy="37.2635"
                         rx="37.2624"
                         ry="37.2635"
-                        fill={`url(#gradient-${index})`}
+                        fill="#EF7850"
                       />
                       <Path
                         d="M24.4344 56.2008C23.4265 56.2008 22.5639 55.7891 21.8468 54.9657C21.1296 54.1423 20.7704 53.1512 20.7692 51.9926V22.5347C20.7692 21.3774 21.1284 20.3871 21.8468 19.5636C22.5652 18.7402 23.4277 18.3278 24.4344 18.3264H44.5927L53.7556 28.8471V51.9926C53.7556 53.1498 53.397 54.1409 52.6799 54.9657C51.9627 55.7905 51.0996 56.2022 50.0904 56.2008H24.4344ZM24.4344 51.9926H50.0904V30.9512H42.7601V22.5347H24.4344V51.9926ZM28.0995 47.7843H46.4253V43.576H28.0995V47.7843ZM28.0995 30.9512H37.2624V26.743H28.0995V30.9512ZM28.0995 39.3678H46.4253V35.1595H28.0995V39.3678Z"
@@ -330,9 +324,6 @@ export default function DebunkScreen() {
 
                   {/* White Card */}
                   <View style={styles.cardContent}>
-                    {/* White line separator */}
-                    <View style={styles.separator} />
-                    
                     {/* Title */}
                     <Text style={styles.title}>Daily Debunk</Text>
                     
@@ -396,7 +387,7 @@ export default function DebunkScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E68B15",
+    backgroundColor: "#FFFFFF",
   },
   contentContainer: {
     width: 386,
@@ -443,13 +434,14 @@ const styles = StyleSheet.create({
   cardContent: {
     width: 386,
     height: 705,
-    backgroundColor: "white",
+
     borderRadius: 10,
     position: "absolute",
     left: 0,
     top: 89,
     paddingHorizontal: 20,
     zIndex: 10, // Above the white circle, below the icon
+    backgroundColor: "#FFEBE5"
   },
   separator: {
     width: 167,
@@ -462,7 +454,7 @@ const styles = StyleSheet.create({
   title: {
     width: 240,
     height: 30,
-    color: "black",
+    color: "#212121",
     textAlign: "center",
     fontFamily: "System",
     fontSize: 25,
@@ -488,7 +480,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#D0D0D0',
   },
   progressDotActive: {
-    backgroundColor: '#E68B15',
+    backgroundColor: '#EF7850',
     width: 12,
     height: 8,
     borderRadius: 4,
@@ -496,11 +488,11 @@ const styles = StyleSheet.create({
   quote: {
     width: 245,
     height: 30,
-    color: "black",
+    color: "#212121",
     textAlign: "center",
     fontFamily: "System",
     fontSize: 20,
-    fontWeight: "700",
+    fontWeight: "600",
     position: "absolute",
     left: 60,
     top: 85,
@@ -508,7 +500,7 @@ const styles = StyleSheet.create({
   content: {
     width: 306,
     height: 355,
-    color: "black",
+    color: "#212121",
     textAlign: "center",
     fontFamily: "System",
     fontSize: 22,
@@ -521,10 +513,10 @@ const styles = StyleSheet.create({
   nextButton: {
     width: 331,
     height: 60,
-    backgroundColor: "#FFBB64",
+    backgroundColor: "#EF7850",
     borderRadius: 10,
     borderWidth: 3,
-    borderColor: "#EB9647",
+    borderColor: "#EF7850",
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
@@ -532,7 +524,7 @@ const styles = StyleSheet.create({
     top: 631,
   },
   nextButtonText: {
-    color: "black",
+    color: "#FFFFFF",
     textAlign: "center",
     fontFamily: "System",
     fontSize: 20,

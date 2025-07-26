@@ -84,11 +84,11 @@ const ArrowIcon = () => (
   <Svg width={12} height={17} viewBox="0 0 12 17" style={styles.arrowIcon}>
     <Path
       d="M3.87271 0.585786C3.09166 -0.195262 1.82533 -0.195262 1.04428 0.585786C0.263234 1.36683 0.263234 2.63316 1.04428 3.41421L3.87271 0.585786ZM2.4585 2L1.04428 3.41421L9.12727 11.4972L10.5415 10.083L11.9557 8.66878L3.87271 0.585786L2.4585 2Z"
-      fill="black"
+      fill="#FFFFFF"
     />
     <Path
       d="M0.936683 13.2821C0.103747 14.0076 0.0166208 15.2709 0.742081 16.1038C1.46754 16.9368 2.73087 17.0239 3.56381 16.2984L0.936683 13.2821ZM2.25024 14.7903L3.56381 16.2984L11.7458 9.17222L10.4322 7.66405L9.11865 6.15589L0.936683 13.2821L2.25024 14.7903Z"
-      fill="black"
+      fill="#FFFFFF"
     />
   </Svg>
 );
@@ -98,11 +98,10 @@ export default function HomeScreen() {
   const router = useRouter();
   return (
     <View style={styles.container}>
-      {/* Background Gradient Circle */}
+      {/* Background Circle */}
       <LinearGradient
-        colors={["#FF960E", "#FF1501"]}
-        locations={[0.4375, 1]}
-        style={styles.backgroundGradient}
+        colors={['#F49825', '#EF5724']}
+        style={styles.backgroundCircle}
       />
 
       {/* Anvil Icon */}
@@ -119,20 +118,15 @@ export default function HomeScreen() {
       {/* CTA Button */}
       <TouchableOpacity onPress={() => router.push('/signup')}
               style={styles.continueButtonContainer}>
-                <LinearGradient
-                  colors={["#FF960E", "#FF1500"]}
-                  style={styles.continueButton}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                >
-  <Text style={styles.ctaText}>Get started for free</Text>
-  <ArrowIcon />
-  </LinearGradient>
-</TouchableOpacity>
+                <View style={styles.continueButton}>
+                  <Text style={styles.ctaText}>Get started for free</Text>
+                  <ArrowIcon />
+                </View>
+              </TouchableOpacity>
 
       {/* Login Link */}
       <TouchableOpacity style={styles.loginContainer} activeOpacity={0.7}>
-        <Text style={styles.loginText}>Have an account already?</Text>
+        <Text style={styles.link}>Have an account already?</Text>
       </TouchableOpacity>
     </View>
   );
@@ -145,7 +139,7 @@ const styles = StyleSheet.create({
     position: "relative",
     alignItems: "center",
   },
-  backgroundGradient: {
+  backgroundCircle: {
     position: "absolute",
     width: 511,
     height: 532,
@@ -173,7 +167,7 @@ const styles = StyleSheet.create({
     fontSize: 60,
     lineHeight: 60,
     textAlign: "center",
-    color: "#000000",
+    color: "#212121",
   },
   subtitle: {
     position: "absolute",
@@ -186,7 +180,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     lineHeight: 30,
     textAlign: "center",
-    color: "#000000",
+    color: "#212121",
   },
   ctaButton: {
     position: "absolute",
@@ -194,7 +188,7 @@ const styles = StyleSheet.create({
     left: screenWidth / 2 - 150.5, // Center the 301px wide button
     width: 301,
     height: 72,
-    backgroundColor: "#FF960E",
+    backgroundColor: "#EF7850",
     borderRadius: 11,
     flexDirection: "row",
     alignItems: "center",
@@ -207,11 +201,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 20,
     textAlign: "center",
-    color: "#000000",
+    color: "#FFFFFF",
   },
   arrowIcon: {
     width: 9,
     height: 13,
+    marginLeft: 8,
   },
   continueButtonContainer: {
     alignItems: "center",
@@ -221,6 +216,7 @@ const styles = StyleSheet.create({
   continueButton: {
     width: 301,
     height: 72,
+    backgroundColor: "#EF7850",
     borderRadius: 12,
     flexDirection: "row",
     alignItems: "center",
@@ -234,14 +230,13 @@ const styles = StyleSheet.create({
     width: 219,
     height: 26,
   },
-  loginText: {
+  link: {
     fontFamily: "System",
     fontWeight: "700",
     fontSize: 18,
     lineHeight: 18,
     textAlign: "center",
-    color: "#000000",
+    color: "#4596EC",
     textDecorationLine: "underline",
-
   },
 });

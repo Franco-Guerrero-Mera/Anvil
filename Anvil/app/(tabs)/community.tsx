@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import Svg, { Path, Circle } from 'react-native-svg';
 import { useRouter } from "expo-router";
 
@@ -103,11 +102,7 @@ const CommunityChats = () => {
     </Svg>
   );
 
-  const CommunityIcon = () => (
-    <Svg width="24" height="14" viewBox="0 0 24 14" fill="none">
-      <Path d="M12 7.875C13.8913 7.875 15.384 8.33 16.5784 9.925C17.6809 9.485 18.25 10.745 18.25 12.11V14H6.125V12.1217C6.125 10.745 6.8191 9.485 7.9216 8.9366C9.116 8.33 10.6087 7.875 12 7.875ZM4.08333 8.16667C5.20625 8.16667 6.125 7.11667 6.125 5.83333C6.125 4.55 5.20625 3.5 4.08333 3.5C2.96042 3.5 2.04167 4.55 2.04167 5.83333C2.04167 7.11667 2.96042 8.16667 4.08333 8.16667ZM5.2369 9.45C4.85917 9.38 4.48146 9.33333 4.08333 9.33333C3.07271 9.33333 2.11313 9.57834 1.24542 10.01C0.875581 10.1907 0.560362 10.4916 0.338936 10.8753C0.11751 11.259 -0.000350846 11.7087 7.84505e-07 12.1683V14H4.59375V12.1217C4.59375 11.1533 4.82854 10.2433 5.2369 9.45ZM19.9167 8.16667C21.0396 8.16667 21.9583 7.11667 21.9583 5.83333C21.9583 4.55 21.0396 3.5 19.9167 3.5C18.7937 3.5 17.875 4.55 17.875 5.83333C17.875 7.11667 18.7937 8.16667 19.9167 8.16667ZM24 12.1683C24 11.2233 23.51 10.3833 22.7546 10.01C21.8594 9.56362 20.8933 9.33327 19.9167 9.33333C19.5185 9.33333 19.1408 9.38 18.7631 9.45C19.1714 10.2433 19.4062 11.1533 19.4062 12.1217V14H24V12.1683ZM12 0C13.9446 0 15.3125 1.56333 15.3125 3.5C15.3125 5.43667 13.9446 7 12 7C10.0554 7 8.6875 5.43667 8.6875 3.5C8.6875 1.56333 10.0554 0 12 0Z" fill="#7096CC"/>
-    </Svg>
-  );
+  
 
   const renderIcon = (iconType: string) => {
     switch (iconType) {
@@ -128,10 +123,7 @@ const CommunityChats = () => {
 
   const CommunityCard = ({ title, description, icon }: { title: string; description: string; icon: string }) => (
     <View style={styles.cardContainer}>
-      <LinearGradient
-        colors={['#7096CC', '#0E356C']}
-        style={styles.card}
-      >
+      <View style={styles.card}>
         <View style={styles.cardContent}>
           <View style={styles.iconCircle}>
             {renderIcon(icon)}
@@ -146,7 +138,7 @@ const CommunityChats = () => {
             <Text style={styles.joinButtonText}>Join community</Text>
           </TouchableOpacity>
         </View>
-      </LinearGradient>
+      </View>
     </View>
   );
 
@@ -157,7 +149,7 @@ const CommunityChats = () => {
         {/* Header Section */}
         <View style={styles.header}>
           <View style={styles.titleSection}>
-            <CommunityIcon />
+      
             <Text style={styles.title}>Community Chats</Text>
             <TouchableOpacity style={styles.addButton}>
               <PlusIcon />
@@ -168,7 +160,6 @@ const CommunityChats = () => {
 
         {/* Search Section */}
         <View style={styles.searchSection}>
-          <View style={styles.searchContainer}>
             <View style={styles.searchInputContainer}>
               <SearchIcon />
               <TextInput
@@ -176,7 +167,6 @@ const CommunityChats = () => {
                 placeholder="Search communities..."
                 placeholderTextColor="#9DA3AE"
               />
-            </View>
           </View>
         </View>
 
@@ -199,13 +189,13 @@ const CommunityChats = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFFFFF',
   },
   scrollView: {
     flex: 1,
   },
   header: {
-    paddingTop: 25,
+    paddingTop: 60,
     paddingHorizontal: 20,
     alignItems: 'center',
   },
@@ -219,7 +209,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: '700',
-    color: '#000',
+    color: '#212121',
     fontFamily: 'Istok Web',
     textAlign: 'center',
     flex: 1,
@@ -228,7 +218,7 @@ const styles = StyleSheet.create({
     width: 33,
     height: 33,
     borderRadius: 16.5,
-    backgroundColor: '#7096CC',
+    backgroundColor: '#EF7850',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
@@ -237,7 +227,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#4D5562',
+    color: '#ABB0B9',
     fontFamily: 'Istok Web',
     textAlign: 'center',
     marginTop: 10,
@@ -247,27 +237,12 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginBottom: 20,
   },
-  searchContainer: {
-    height: 66,
-    borderRadius: 10,
-    backgroundColor: '#FFF',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 3,
-      height: 4,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 7.5,
-    elevation: 8,
-    justifyContent: 'center',
-    paddingHorizontal: 13,
-  },
   searchInputContainer: {
     height: 46,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: '#E6E7EB',
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFEBE5',
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
@@ -275,8 +250,8 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 13,
-    fontWeight: '700',
-    color: '#9DA3AE',
+    fontWeight: '500',
+    color: '#ABB0B9',
     fontFamily: 'Istok Web',
     marginLeft: 17,
   },
@@ -289,6 +264,7 @@ const styles = StyleSheet.create({
   card: {
     height: 141,
     borderRadius: 10,
+    backgroundColor: '#EF7850',
     shadowColor: '#000',
     shadowOffset: {
       width: 3,
@@ -309,7 +285,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 47,
     borderRadius: 22.5,
-    backgroundColor: '#597FB5',
+    backgroundColor: '#F3A47D',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 15,
@@ -320,7 +296,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#FFF',
+    color: '#FFFFFF',
     fontFamily: 'Istok Web',
     marginBottom: 8,
   },
@@ -330,12 +306,13 @@ const styles = StyleSheet.create({
   cardDescription: {
     fontSize: 11,
     fontWeight: '400',
-    color: '#4D5562',
+    color: '#595755',
     fontFamily: 'Istok Web',
+    
   },
   bottomSection: {
     height: 59,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFFFFF',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     justifyContent: 'center',
@@ -343,7 +320,7 @@ const styles = StyleSheet.create({
   },
   joinButton: {
     height: 34,
-    backgroundColor: '#7096CC',
+    backgroundColor: '#EF7850',
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -352,7 +329,7 @@ const styles = StyleSheet.create({
   joinButtonText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FFF',
+    color: '#FFFFFF',
     fontFamily: 'Istok Web',
   },
 });
