@@ -75,23 +75,23 @@ const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 const cardData = [
   {
     quote: '"Boys who cry are weak."',
-    content: 'Crying is a natural response to stress, pain, and even happiness. research shows bottling up emotions leads to higher anxiety and anger. Healthy masculinity makes space for emotion.',
-    sourceUrl: 'https://google.com'
+    content: 'Crying is a natural response to stress, pain, and even happiness. Research shows bottling up emotions leads to higher anxiety and anger. Healthy masculinity makes space for emotion.',
+    sourceUrl: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6795704'
   },
   {
     quote: '"Real men don\'t ask for help."',
     content: 'Seeking help is a sign of strength and wisdom. Studies show that men who ask for support have better mental health outcomes and stronger relationships. Independence doesn\'t mean isolation.',
-    sourceUrl: 'https://google.com'
+    sourceUrl: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8782463'
   },
   {
     quote: '"Men should always be the provider."',
     content: 'Modern relationships thrive on partnership and shared responsibilities. Many successful families have dual incomes or non-traditional roles. True strength comes from supporting each other.',
-    sourceUrl: 'https://google.com'
+    sourceUrl: 'https://www.pewresearch.org/social-trends/2017/09/20/americans-see-men-as-the-financial-providers-even-as-womens-contributions-grow/'
   },
   {
     quote: '"Men don\'t need emotional support."',
     content: 'Everyone needs emotional connection and support. Men who maintain close friendships and express their feelings have lower rates of depression and better overall well-being.',
-    sourceUrl: 'https://google.com'
+    sourceUrl: 'https://www.cornerstonehealingcenter.com/resource/mens-mental-health-stigma/'
   }
 ];
 
@@ -486,29 +486,30 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   quote: {
-    width: 245,
-    height: 30,
+    width: 300,
+    minHeight: 60,
+    color: "#212121",
+    textAlign: "center",
+    fontFamily: "System",
+    fontSize: 18,
+    fontWeight: "600",
+    position: "absolute",
+    left: 43,
+    top: 105,
+    lineHeight: 24,
+  },
+  content: {
+    width: 306,
+    minHeight: 300,
     color: "#212121",
     textAlign: "center",
     fontFamily: "System",
     fontSize: 20,
-    fontWeight: "600",
-    position: "absolute",
-    left: 60,
-    top: 85,
-  },
-  content: {
-    width: 306,
-    height: 355,
-    color: "#212121",
-    textAlign: "center",
-    fontFamily: "System",
-    fontSize: 22,
     fontWeight: "400",
     position: "absolute",
     left: 40,
-    top: 200,
-    lineHeight: 35,
+    top: 180,
+    lineHeight: 32,
   },
   nextButton: {
     width: 331,

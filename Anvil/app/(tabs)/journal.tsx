@@ -441,13 +441,6 @@ const Journal = () => {
                     <View key={i} style={[styles.pinDot, pin[i] && styles.pinDotFilled]} />
               ))}
             </View>
-              <View style={styles.pinRow}>
-                {['1', '2', '3'].map(num => (
-                  <TouchableOpacity key={num} style={styles.pinButton} onPress={() => handlePinPress(num)}>
-                    <Text style={styles.pinButtonText}>{num}</Text>
-                  </TouchableOpacity>
-                ))}
-            </View>
             <View style={styles.pinPad}>
               {/* Row 1 */}
               <View style={styles.pinRow}>
