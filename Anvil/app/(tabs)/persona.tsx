@@ -216,11 +216,12 @@ const PersonaBuilder = () => {
   const currentStepData = getCurrentStepData();
 
   return (
-    <ScrollView
-  contentContainerStyle={styles.scrollContent}
-  showsVerticalScrollIndicator={false}
->
-      {/* Header Section */}
+    <View style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header Section */}
       
 
         <View style={styles.titleContainer}>
@@ -278,13 +279,14 @@ const PersonaBuilder = () => {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#ffffffff',
   },
   titleContainer: {
     alignItems: 'center',

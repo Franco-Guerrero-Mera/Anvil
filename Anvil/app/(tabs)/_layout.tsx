@@ -189,43 +189,46 @@ const CustomTabBar = ({
           </Animated.View>
 
           <View style={styles.tabBar}>
-            <TabIcon
-              label="Home"
-              icon={<Ionicons name="home" size={36} color="#EF7850" />}
-              onPress={() => navigation.navigate("home")}
-            />
-            <TabIcon
-              label="Bobert"
-              icon={<Ionicons name="chatbubbles" size={36} color="#EF7850" />}
-              onPress={() => navigation.navigate("aichat")}
-            />
+            <View style={styles.leftSection}>
+              <TabIcon
+                label="Home"
+                icon={<Ionicons name="home" size={36} color="#EF7850" />}
+                onPress={() => navigation.navigate("home")}
+              />
+              <TabIcon
+                label="Bobert"
+                icon={<Ionicons name="chatbubbles" size={36} color="#EF7850" />}
+                onPress={() => navigation.navigate("aichat")}
+              />
+            </View>
 
-           <View style={styles.spacer} />
+            <View style={styles.centerSection}>
+              <TouchableOpacity
+                onPress={toggleMenu}
+                style={styles.centerButtonContainer}
+              >
+                <View style={styles.centerButton}>
+                  <Ionicons
+                    name={menuOpen ? "close" : "menu"}
+                    size={35}
+                    color="white"
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
 
-            <TouchableOpacity
-              onPress={toggleMenu}
-              style={styles.centerButtonContainer}
-            >
-              <View style={styles.centerButton}>
-                <Ionicons
-                  name={menuOpen ? "close" : "menu"}
-                  size={35}
-                  color="white"
-                />
-              </View>
-            </TouchableOpacity>
-
-
-            <TabIcon
-              label="Self-coaching"
-              icon={<Ionicons name="book" size={35} color="#EF7850" />}
-              onPress={() => navigation.navigate("journal")}
-            />
-            <TabIcon
-              label="Message"
-              icon={<GroupIcon size={36} color="#EF7850" />}
-              onPress={() => navigation.navigate("community")}
-            />
+            <View style={styles.rightSection}>
+              <TabIcon
+                label="Reflection"
+                icon={<Ionicons name="book" size={35} color="#EF7850" />}
+                onPress={() => navigation.navigate("journal")}
+              />
+              <TabIcon
+                label="Community"
+                icon={<GroupIcon size={36} color="#EF7850" />}
+                onPress={() => navigation.navigate("community")}
+              />
+            </View>
           </View>
         </>
       )}
@@ -263,24 +266,44 @@ const styles = StyleSheet.create({
   borderTopColor: "#ddd",
   paddingBottom: 20,
   paddingTop: 18,
+  paddingHorizontal: 25,
   },
   tabItem: {
-   flex: 1, // Each tab gets equal width
   alignItems: "center",
   justifyContent: "center",
+  paddingHorizontal: 8,
+  minWidth: 60,
   },
   tabLabel: {
     fontSize: 10,
     fontWeight: "bold",
     color: "#000",
-    flex: 1,
   },
   centerButtonContainer: {
-    position: "absolute",
-  bottom: 20,
-  left: "50%",
-  transform: [{ translateX: -43 }], // Half of button width (86 / 2)
-  zIndex: 100,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  leftSection: {
+    flexDirection: "row",
+    flex: 1,
+    justifyContent: "space-evenly",
+  },
+  centerSection: {
+    flexDirection: "row",
+    flex: 0,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  middleSection: {
+    flexDirection: "row",
+    flex: 2,
+    justifyContent: "space-evenly",
+    alignItems: "center",
+  },
+  rightSection: {
+    flexDirection: "row",
+    flex: 1,
+    justifyContent: "space-evenly",
   },
   spacer: {
   width: 86,          

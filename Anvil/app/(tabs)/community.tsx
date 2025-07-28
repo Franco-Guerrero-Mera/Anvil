@@ -58,7 +58,7 @@ const CommunityChats = () => {
   );
 
   const GamingIcon = () => (
-    <Svg width="27" height="27" viewBox="0 0 27 27" fill="none">
+    <Svg width="27" height="27" viewBox="0 0 30 26" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -87,12 +87,12 @@ const CommunityChats = () => {
   );
 
   const MusicIcon = () => (
-    <Svg width="27" height="27" viewBox="0 0 27 27" fill="none">
-      <Circle cx="5.5" cy="23.5" r="4.5" fill="white" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <Circle cx="23.5" cy="21" r="4.5" fill="white" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <Path d="M27.5 6.60938L10.5 10.8594V5.89062L27.5 1.64062V6.60938Z" fill="white" stroke="white"/>
-      <Path d="M10 23.5V11.5V23.5ZM28 22V7V22ZM10 11.5V5.5L28 1V7M10 11.5L28 7L10 11.5Z" fill="white"/>
-      <Path d="M10 23.5V11.5M10 11.5V5.5L28 1V7M10 11.5L28 7M28 22V7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <Svg width="27" height="27" viewBox="0 0 30 26" fill="none">
+      <Circle cx="5.5" cy="21.5" r="4.5" fill="white" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <Circle cx="23.5" cy="19" r="4.5" fill="white" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <Path d="M27.5 4.60938L10.5 8.8594V3.89062L27.5 -0.35938V4.60938Z" fill="white" stroke="white"/>
+      <Path d="M10 21.5V9.5V21.5ZM28 20V5V20ZM10 9.5V3.5L28 -1V5M10 9.5L28 5L10 9.5Z" fill="white"/>
+      <Path d="M10 21.5V9.5M10 9.5V3.5L28 -1V5M10 9.5L28 5M28 20V5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </Svg>
   );
 
@@ -125,7 +125,7 @@ const CommunityChats = () => {
     <View style={styles.cardContainer}>
       <View style={styles.card}>
         <View style={styles.cardContent}>
-          <View style={styles.iconCircle}>
+          <View style={styles.iconContainer}>
             {renderIcon(icon)}
           </View>
           <View style={styles.textContent}>
@@ -281,11 +281,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
   },
-  iconCircle: {
-    width: 45,
-    height: 47,
-    borderRadius: 22.5,
-    backgroundColor: '#F3A47D',
+  iconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 15,

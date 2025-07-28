@@ -276,7 +276,7 @@ const Journal = () => {
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.headerContent}>
-            <Text style={styles.headerTitle}>Self Coaching</Text>
+            <Text style={styles.headerTitle}>Reflection</Text>
           </View>
             <TouchableOpacity style={styles.addButton} onPress={() => router.push("/entrywrite")}>
             <PlusIcon />
