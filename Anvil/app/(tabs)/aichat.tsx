@@ -1,23 +1,19 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
-  View,
+  ActivityIndicator,
+  Dimensions,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  ActivityIndicator,
-  StyleSheet,
-  Dimensions,
-  Image,
+  View,
 } from "react-native";
 import Svg, {
-  Circle,
-  Path,
-  Defs,
-  LinearGradient as SvgLinearGradient,
-  Stop,
+  Path
 } from "react-native-svg";
 
 const { height, width } = Dimensions.get("window");
@@ -66,7 +62,7 @@ export default function ChatScreen() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/chat", {
+      const response = await fetch("https://backend-anvil.onrender.com/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage.text }),
