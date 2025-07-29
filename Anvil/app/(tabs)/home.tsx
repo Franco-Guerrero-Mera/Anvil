@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  SafeAreaView, 
-  ScrollView, 
+import {
+  Dimensions,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
   TouchableOpacity,
-  Dimensions 
+  View
 } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
@@ -404,27 +405,37 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     height: 69,
     marginBottom: 20,
+    paddingHorizontal: Math.floor(screenWidth * 0.01), // 1% padding
   },
   emoji: {
-    fontSize: 50,
+    fontSize: Platform.OS === 'ios' ? 38 : 36,
     textAlign: 'center',
-    width: 50,
+    width: Math.floor(screenWidth * 0.11), // ~11% of screen width
+    height: 50,
+    lineHeight: Platform.OS === 'ios' ? 48 : 46,
+    includeFontPadding: false, // Android-specific: removes extra padding
   },
   selectorEmoji: {
-    fontSize: 42,
+    fontSize: Platform.OS === 'ios' ? 32 : 30,
+    textAlign: 'center',
+    lineHeight: Platform.OS === 'ios' ? 38 : 36,
+    includeFontPadding: false, // Android-specific
   },
   moodEmojisRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginHorizontal: 20,
+    marginHorizontal: Math.floor(screenWidth * 0.05), // 5% margins
     marginBottom: 40,
+    paddingHorizontal: 5,
   },
   moodEmojiButton: {
-    padding: 4,
+    width: Math.floor(screenWidth * 0.11), // Responsive button size
+    height: Math.floor(screenWidth * 0.11),
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 2,
   },
   selectedMoodEmoji: {
     backgroundColor: '#FEF5F3',
@@ -436,6 +447,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 20,
+    paddingHorizontal: Math.floor(screenWidth * 0.01), // Match emoji row padding
   },
   dayLabel: {
     fontFamily: 'Manrope',
@@ -444,7 +456,8 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: '#595755',
     textAlign: 'center',
-    width: 50,
+    width: Math.floor(screenWidth * 0.11), // Match emoji width
+    includeFontPadding: false, // Android-specific for consistent alignment
   },
   moodSelection: {
     height: 40,
@@ -513,6 +526,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     color: '#595755',
     flex: 1,
+    includeFontPadding: false, // Android-specific: prevents extra spacing
   },
   checklistTextCompleted: {
     textDecorationLine: 'line-through',

@@ -1,24 +1,24 @@
+import { Ionicons } from "@expo/vector-icons";
+import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import { BlurView } from "expo-blur";
+import { Tabs } from "expo-router";
 import React, { useState } from "react";
 import {
-  View,
+  Dimensions,
+  Platform,
+  StyleSheet,
   Text,
   TouchableOpacity,
-  StyleSheet,
-  Dimensions,
+  View,
 } from "react-native";
-import { Tabs } from "expo-router";
-import { LinearGradient } from "expo-linear-gradient";
 import Animated, {
-  useSharedValue,
   useAnimatedStyle,
+  useSharedValue,
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { BlurView } from "expo-blur";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Svg, { Path } from "react-native-svg";
-import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-
 
 const { width } = Dimensions.get("window");
 
@@ -66,7 +66,7 @@ const CustomTabBar = ({
   navigation,
   state,
 }: BottomTabBarProps) => {
-
+  const insets = useSafeAreaInsets();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const icon1Y = useSharedValue(0);
@@ -114,6 +114,10 @@ const CustomTabBar = ({
   // Check if we should hide the tab bar on index and signup pages
   const shouldHideTabBar = currentRoute === 'index' || currentRoute === 'signup';
 
+  // Calculate safe bottom padding
+  const safeBottomPadding = Math.max(insets.bottom, Platform.OS === 'android' ? 16 : 0);
+  const tabBarHeight = 85 + safeBottomPadding;
+
   const toggleMenu = () => {
     const open = !menuOpen;
     setMenuOpen(open);
@@ -155,7 +159,7 @@ const CustomTabBar = ({
           </Animated.View>
 
           {/* Popup buttons */}
-          <Animated.View style={[styles.popupIcon, popup1Style]}>
+          <Animated.View style={[styles.popupIcon, popup1Style, { bottom: tabBarHeight }]}>
             <TouchableOpacity onPress={() => {
               toggleMenu();
               navigation.navigate("persona");
@@ -166,7 +170,7 @@ const CustomTabBar = ({
             </TouchableOpacity>
           </Animated.View>
 
-          <Animated.View style={[styles.popupIcon, popup2Style]}>
+          <Animated.View style={[styles.popupIcon, popup2Style, { bottom: tabBarHeight + 20 }]}>
             <TouchableOpacity onPress={() => {
               toggleMenu();
               navigation.navigate("profile");
@@ -177,7 +181,7 @@ const CustomTabBar = ({
             </TouchableOpacity>
           </Animated.View>
 
-          <Animated.View style={[styles.popupIcon, popup3Style]}>
+          <Animated.View style={[styles.popupIcon, popup3Style, { bottom: tabBarHeight }]}>
             <TouchableOpacity onPress={() => {
               toggleMenu();
               navigation.navigate("debunk");
@@ -188,7 +192,10 @@ const CustomTabBar = ({
             </TouchableOpacity>
           </Animated.View>
 
-          <View style={styles.tabBar}>
+          <View style={[styles.tabBar, { 
+            height: tabBarHeight,
+            paddingBottom: safeBottomPadding + 4 
+          }]}>
             <View style={styles.leftSection}>
               <TabIcon
                 label="Home"
@@ -260,11 +267,9 @@ const styles = StyleSheet.create({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  height: 85,
   backgroundColor: "white",
   borderTopWidth: 0.5,
   borderTopColor: "#ddd",
-  paddingBottom: 20,
   paddingTop: 18,
   paddingHorizontal: 25,
   },
@@ -321,7 +326,6 @@ const styles = StyleSheet.create({
   },
   popupIcon: {
     position: "absolute",
-    bottom: 85,
     left: width / 2 - 30,
     zIndex: 99,
   },

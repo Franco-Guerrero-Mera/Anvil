@@ -1,30 +1,30 @@
+import { useRouter } from 'expo-router';
 import React, { useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
   Dimensions,
+  Linking,
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import Svg, {
-  Path,
-  Ellipse,
-  Defs,
-  LinearGradient,
-  Stop,
-  Circle,
-} from "react-native-svg";
-import { useRouter } from 'expo-router';
-import Animated, { 
-  useSharedValue, 
-  useAnimatedStyle, 
-  withSpring, 
-  runOnJS,
-  interpolate,
-  Extrapolate
-} from 'react-native-reanimated';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import { Linking} from 'react-native';
+import Animated, {
+  Extrapolate,
+  interpolate,
+  runOnJS,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring
+} from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, {
+  Circle,
+  Ellipse,
+  Path
+} from "react-native-svg";
 
 // Swipe Indicator Component
 const SwipeIndicator = () => (
@@ -97,6 +97,7 @@ const cardData = [
 
 export default function DebunkScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const translateX = useSharedValue(0);
@@ -277,19 +278,20 @@ export default function DebunkScreen() {
   const currentCard = getCurrentCard();
 
   return (
-    <Animated.View style={[styles.container, backgroundAnimatedStyle]}>
-      <View style={styles.contentContainer}>
-        {/* Cards Container - Stacked deck effect with integrated icons and white circle */}
-        <GestureDetector gesture={panGesture}>
-          <View style={styles.cardsContainer}>
-            {/* Render cards in reverse order so current card appears on top */}
-            {[...cardData].reverse().map((card, reverseIndex) => {
-              const index = cardData.length - 1 - reverseIndex;
-              return (
-                <Animated.View 
-                  key={index}
-                  style={[styles.cardWithIcon, getCardAnimatedStyle(index)]}
-                >
+    <SafeAreaView style={styles.safeContainer}>
+      <Animated.View style={[styles.container, backgroundAnimatedStyle]}>
+        <View style={styles.contentContainer}>
+          {/* Cards Container - Stacked deck effect with integrated icons and white circle */}
+          <GestureDetector gesture={panGesture}>
+            <View style={styles.cardsContainer}>
+              {/* Render cards in reverse order so current card appears on top */}
+              {[...cardData].reverse().map((card, reverseIndex) => {
+                const index = cardData.length - 1 - reverseIndex;
+                return (
+                  <Animated.View 
+                    key={index}
+                    style={[styles.cardWithIcon, getCardAnimatedStyle(index)]}
+                  >
                   {/* White Circle Background - moves with each card */}
                   <View style={styles.circleInCard}>
                     <Svg
@@ -381,19 +383,24 @@ export default function DebunkScreen() {
         </GestureDetector>
       </View>
     </Animated.View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+  },
   container: {
     flex: 1,
     backgroundColor: "#FFFFFF",
   },
   contentContainer: {
-    width: 386,
-    height: 794,
+    width: screenWidth - 32, // Simple responsive width with margins
+    height: screenHeight - 160, // Account for safe areas and tab bar  
     alignSelf: "center",
-    marginTop: 15,
+    marginTop: Platform.OS === 'ios' ? 0 : 20, // Remove top margin on iOS
     position: "relative",
     overflow: "hidden", // Hide cards that slide off screen
   },
@@ -401,21 +408,21 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 0,
     left: 0,
-    width: 386,
-    height: 794,
+    width: screenWidth - 32,
+    height: screenHeight - 160,
     overflow: "hidden", // Ensure clean card transitions
   },
   cardWithIcon: {
     position: "absolute",
     left: 0,
     top: 0,
-    width: 386,
-    height: 794,
+    width: screenWidth - 32,
+    height: screenHeight - 160,
   },
   circleInCard: {
     position: "absolute",
-    left: 102,
-    top: 0,
+    left: (screenWidth - 32) / 2 - 86.5, // Center the circle (173/2 = 86.5)
+    top: Platform.OS === 'android' ? -10 : 0, // Raise it slightly on Android
     alignItems: "center",
     justifyContent: "center",
     zIndex: 5, // Behind the white card container
@@ -427,19 +434,19 @@ const styles = StyleSheet.create({
   },
   iconAboveCard: {
     position: "absolute",
-    left: 150,
-    top: 50,
+    left: (screenWidth - 32) / 2 - 37.5, // Center the icon (75/2 = 37.5)
+    top: Platform.OS === 'android' ? 35 : 50, // Lower on Android to avoid clipping title
     zIndex: 15, // Above everything
   },
   cardContent: {
-    width: 386,
-    height: 705,
-
+    width: screenWidth - 32,
+    height: (screenHeight - 160) * 0.89, // Responsive height
     borderRadius: 10,
     position: "absolute",
     left: 0,
-    top: 89,
+    top: Platform.OS === 'android' ? (screenHeight - 160) * 0.09 : (screenHeight - 160) * 0.11, // Less top space on Android
     paddingHorizontal: 20,
+    paddingBottom: Platform.OS === 'android' ? 30 : 20, // Extra padding for Android
     zIndex: 10, // Above the white circle, below the icon
     backgroundColor: "#FFEBE5"
   },
@@ -452,16 +459,15 @@ const styles = StyleSheet.create({
     top: 14,
   },
   title: {
-    width: 240,
-    height: 30,
     color: "#212121",
     textAlign: "center",
     fontFamily: "System",
     fontSize: 25,
     fontWeight: "800",
     position: "absolute",
-    left: 73,
-    top: 40,
+    left: (screenWidth - 32) * 0.19,
+    right: (screenWidth - 32) * 0.19,
+    top: Platform.OS === 'android' ? 50 : 40, // More space from top on Android
   },
   progressContainer: {
     flexDirection: 'row',
@@ -470,7 +476,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
-    top: 75,
+    top: Platform.OS === 'android' ? 85 : 75, // Lower on Android to match title adjustment
     gap: 8,
   },
   progressDot: {
@@ -486,33 +492,30 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   quote: {
-    width: 300,
-    minHeight: 60,
     color: "#212121",
     textAlign: "center",
     fontFamily: "System",
     fontSize: 18,
     fontWeight: "600",
     position: "absolute",
-    left: 43,
+    left: (screenWidth - 32) * 0.11,
+    right: (screenWidth - 32) * 0.11,
     top: 105,
     lineHeight: 24,
   },
   content: {
-    width: 306,
-    minHeight: 300,
     color: "#212121",
     textAlign: "center",
     fontFamily: "System",
     fontSize: 20,
     fontWeight: "400",
     position: "absolute",
-    left: 40,
+    left: (screenWidth - 32) * 0.10,
+    right: (screenWidth - 32) * 0.10,
     top: 180,
     lineHeight: 32,
   },
   nextButton: {
-    width: 331,
     height: 60,
     backgroundColor: "#EF7850",
     borderRadius: 10,
@@ -521,8 +524,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    left: 35,
-    top: 631,
+    left: (screenWidth - 32) * 0.09,
+    right: (screenWidth - 32) * 0.09,
+    bottom: Platform.OS === 'android' ? 40 : 20, // More space on Android
   },
   nextButtonText: {
     color: "#FFFFFF",
@@ -534,7 +538,7 @@ const styles = StyleSheet.create({
   // Swipe Indicator Styles
   swipeIndicatorContainer: {
     position: "absolute",
-    bottom: 90, // Position above the source button (button is at bottom 20, height 60, so 80 + 10 margin)
+    bottom: Platform.OS === 'android' ? 110 : 90, // Position above the source button with more space on Android
     left: 0,
     right: 0,
     alignItems: "center",
@@ -560,7 +564,7 @@ const styles = StyleSheet.create({
   // End of Lesson Styles
   endOfLessonWrapper: {
     position: "absolute",
-    bottom: 90, // Position above the source button (same as swipe indicator)
+    bottom: Platform.OS === 'android' ? 110 : 90, // Position above the source button with more space on Android
     left: 0,
     right: 0,
     alignItems: "center",
