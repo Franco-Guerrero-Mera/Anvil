@@ -226,7 +226,7 @@ const PersonaBuilder = () => {
 
         <View style={styles.titleContainer}>
           <Text style={styles.mainTitle}>Persona Builder</Text>
-          <Text style={styles.subtitle}>Discover your path to healthy masculinity</Text>
+          <Text style={styles.subtitle}>Discover your path towards optimal mental health</Text>
         </View>
 
         <Text style={styles.stepText}>Step {currentStepData.step} of 4</Text>
